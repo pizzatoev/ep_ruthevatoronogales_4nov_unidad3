@@ -80,19 +80,18 @@ public class FragmentMapa extends Fragment implements OnMapReadyCallback {
     }
 
     private void moverMarcadorSimulado() {
-        // Simulamos un nuevo movimiento del marcador
         ubicacionActual = new LatLng(
                 ubicacionActual.latitude - 0.01,
                 ubicacionActual.longitude + 0.01
         );
         marcador.setPosition(ubicacionActual);
         myMap.animateCamera(CameraUpdateFactory.newLatLngZoom(ubicacionActual, 13));
-        Toast.makeText(getContext(), "Marcador movido por 3 movimientos bruscos consecutivos", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), "Marcador movido por brusco ", Toast.LENGTH_SHORT).show();
     }
 
     private void verificarZonaAlerta() {
         if (ubicacionActual.latitude < -17.8) {
-            Toast.makeText(getContext(), "⚠ Zona de riesgo detectada", Toast.LENGTH_LONG).show();
+            Toast.makeText(getContext(), "Zona de riesgo", Toast.LENGTH_LONG).show();
         }
     }
 }
