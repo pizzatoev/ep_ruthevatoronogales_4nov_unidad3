@@ -79,12 +79,10 @@ public class FragmentSensor extends Fragment implements SensorEventListener {
         String tipoMovimiento = clasificarMovimiento(x, y, z);
         txtEstado.setText("Movimiento: " + tipoMovimiento);
 
-        // Notificamos al MainActivity
         if (movimientoListener != null) {
             movimientoListener.onMovimientoDetectado(tipoMovimiento);
         }
 
-        // Mostrar datos estadísticos
         actualizarEstadisticas();
     }
 
@@ -117,7 +115,6 @@ public class FragmentSensor extends Fragment implements SensorEventListener {
         float promX = promedio(listaX);
         float promY = promedio(listaY);
         float promZ = promedio(listaZ);
-
         float maxX = max(listaX);
         float minX = min(listaX);
 
